@@ -9,7 +9,13 @@ const io = require('socket.io')(server);
 
 
 io.on('connection', (socket) => {
+    
     socket.emit('client', { message: 'client connected', date: new Date()})    
+
+    socket.on('counter', (data) => {        
+        io.emit('counter', data);
+    })
+
 });
 
 setInterval(() => {
@@ -48,4 +54,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log('listening port:' + bind)
 }
