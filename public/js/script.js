@@ -1,14 +1,9 @@
 ﻿var socket = io('https://webpopids.herokuapp.com');
 
-// DEBUG 
-// var socket = io('http://localhost:8083');
-
-
 var MAX_STATIONS = 32;
 
 socket.on('connect', function () {
-    console.log(`%c Web Socket Connected`, 'color: cyan;');
-    socket.emit('process');
+    console.log(`%c Web Socket Connected`, 'color: cyan;');    
     $("#error-box").hide();
 });
 
@@ -29,6 +24,7 @@ socket.on('server process', function(data) {
     $("#objective").text(data.objective);
     $("#stop-time").text(convertMsToTime(data.stopTime));
 });
+
 
 socket.on('server popids', function(data) {
     if (!data) {
@@ -69,7 +65,9 @@ socket.on('server takt', function(data)  {
         }
     }
 
-    $('#andon-message').html(data.andonMessage.replace(/\\n/, ' '));
+    if (data) {
+        $('#andon-message').html(data.andonMessage.replace(/\\n/, ' '));
+    }    
 
 });
 
@@ -82,32 +80,6 @@ socket.on('plc-status', function(status) {
     $("#restart-button").hide();
 });
 
-$("#restart-button").on('click', function() {
-    $.get('/plc/restart', function(data){
-        console.log(data);
-    })    
-});
-
-$("#reload-button").on('click', function() {
-    console.log('recarregando')
-    socket.emit('server-reload-screen', '');
-});
-
-// setInterval(function () {
-//     socket.emit('popids');
-// }, 2000);
-
-// setInterval(function () {
-//     socket.emit('takt');
-// }, 1000);
-
-// setInterval(function () {
-//     socket.emit('process');
-// }, 5000);
-
-// setInterval(function() {        
-//     socket.emit('get-plc-status');
-// }, 2000);
 
 function convertMsToTime(ms) {
     var negative = false;
