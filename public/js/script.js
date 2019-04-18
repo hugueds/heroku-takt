@@ -93,21 +93,21 @@ $("#reload-button").on('click', function() {
     socket.emit('server-reload-screen', '');
 });
 
-setInterval(function () {
-    socket.emit('popids');
-}, 2000);
+// setInterval(function () {
+//     socket.emit('popids');
+// }, 2000);
 
-setInterval(function () {
-    socket.emit('takt');
-}, 1000);
+// setInterval(function () {
+//     socket.emit('takt');
+// }, 1000);
 
-setInterval(function () {
-    socket.emit('process');
-}, 5000);
+// setInterval(function () {
+//     socket.emit('process');
+// }, 5000);
 
-setInterval(function() {        
-    socket.emit('get-plc-status');
-}, 2000);
+// setInterval(function() {        
+//     socket.emit('get-plc-status');
+// }, 2000);
 
 function convertMsToTime(ms) {
     var negative = false;
