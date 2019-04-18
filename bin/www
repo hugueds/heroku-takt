@@ -10,17 +10,10 @@ const io = require('socket.io')(server);
 
 io.on('connection', (socket) => {
     
-    socket.emit('client', { message: 'client connected', date: new Date()})    
-
-    socket.on('counter', (data) => {        
-        io.emit('counter', data);
-    })
+    socket.on('server popids', (data) => io.emit('server popids', data));
 
 });
 
-setInterval(() => {
-    io.emit('server event',  { message: 'server', date: new Date()})
-}, 2000);
 
 const PORT = process.env.PORT || process.env.DEV_PORT;
 app.set('port', PORT);

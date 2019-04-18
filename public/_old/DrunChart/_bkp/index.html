@@ -1,0 +1,136 @@
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interferências</title>
+    <link rel="stylesheet" href="style/jquery-ui.css" />
+    <link rel="stylesheet" href="style/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <div style="display: none;">
+        <div>TAKT</div> 5:50
+        <div>PRODUÇÃO</div> 75
+        <div>OCE</div> 6%
+    </div>
+
+    <!-- <header>
+        <img src="images/scania_256x256.png" alt="Scania Logo">
+        <div> EMITIDO EM:
+            <span> 01/01/2000 </span>
+        </div>
+    </header> -->
+
+    <div class="wrapper">
+        <div class="box date-wrapper">
+            <div>
+                <label for="start-date">DATA INICIAL</label>
+                <input type="text" id="start-date">
+            </div>
+            <div>
+                <label for="end-date">DATA FINAL</label>
+                <input type="text" id="end-date" />
+            </div>
+        </div>
+        
+        <div class="box">
+            <label for="select-line">TRECHO</label>
+            <select name="line" id="select-line" onchange="loadChart()">
+                <option value="0">Todos</option>
+                <option value="10">ML 1/3</option>
+                <option value="28">ML 2/4</option>
+            </select>
+        </div>
+
+        <div class="box">
+            <label for="select-group">GRUPO</label>
+            <select name="groups" id="select-group" onchange="selectGroup()"></select>
+        </div>
+
+        <div class="box" style="display: none;">
+            <label for="select-objective">OBJETIVO</label>
+            <input min="0" max="59" type="number" name="" id="target-minute" placeholder="MM" />
+            <span>:</span>
+            <input min="0" max="59" type="number" name="" id="target-second" placeholder="SS" />
+            <button class="button" onclick="updateObjective()">Atualizar</button>
+        </div>
+
+    </div>
+
+    <div class="chart-wrapper">
+        <div id="chartContainer" style="height: 30rem;"></div>
+        <div id="stopTimeChart" style="height: 30rem;"></div>
+    </div>
+
+    <div class="wrapper">
+        <button class="button toggle" onclick="toggleSelection()">Inverter Seleção</button>
+    </div>
+    
+    <div class="wrapper">        
+        <button class="button" onclick="sprint()">Imprimir</button>
+    </div>
+
+    <div class="wrapper">
+        <button onclick="toggleDeviationTable()"> EXIBIR DESVIOS </button>
+    </div>
+
+    <div style="display:none;" id="deviation-container" class="deviation-container"></div>
+
+    <!-- Polyfills for IE 11 -->    
+    <script src="lib/polyfill.min.js"></script>
+    <script src="lib/fetch.min.js"></script>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    <script src="lib/canvasjs.min.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/chartRender.js"></script>
+    <script src="js/stopTimeChart.js"></script>
+    <script src="js/deviation.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+
+        var yesterday = null;
+
+        function toggleDeviationTable() {
+            var deviationTable = document.getElementById('deviation-container');
+            var display = deviationTable.style.display;
+            deviationTable.style.display = display == 'none' ? 'block' : 'none';
+        }
+
+        $(function () {
+
+            var dateConfig = {
+                dateFormat: 'dd-mm-yy',
+                locale: 'pt-br',
+                dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                nextText: 'Proximo',
+                prevText: 'Anterior'
+            }
+
+            yesterday = getYesterday(new Date);
+
+            $("[id$=date]").datepicker(dateConfig).datepicker("setDate", yesterday);
+
+            $("[id$=date]").on('change', loadChart);
+
+        });       
+
+    </script>
+
+
+</body>
+
+</html>

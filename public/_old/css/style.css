@@ -1,0 +1,127 @@
+body {
+  margin: auto;
+  background-color: #444544;
+}
+
+.title {
+  /* border: solid blue 1px; */
+  width: 97.5%;
+  margin: 0 auto;
+  margin-top: 1%;
+  background-color: lightseagreen;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3.2vw;
+  color: #eef9ae;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2vw;  
+}
+
+
+.functions {  
+  padding-bottom: 0%;
+}
+
+.function-container {
+  margin-top: 0.75%;
+  border: solid white 1px;
+  background-color: #222222;
+  margin-left: 0.5%;
+  width: 13.5%;
+  box-shadow: 3px 3px 3px #888888;
+}
+
+.function {
+  font-size: 2.2vw;
+  margin-top: 7.5%;
+  color: lightsalmon;  
+}
+
+.station {
+  /* display: flex; */
+  margin-top: 5%;
+  margin-bottom: 15px;
+  vertical-align: middle;  
+}
+
+.station-ready{
+  background-color: #009922;
+}
+
+.station-stopped{
+  background-color: red;
+}
+
+.station:hover{
+  background-color: cornflowerblue;
+}
+
+.station-number {
+  color: aliceblue;
+  font-size: 1.4vw;
+  text-shadow: 1px 2px #222222;  
+  margin-left: 10%;  
+  display: inline-flex;
+}
+
+.popid {
+  text-shadow: 1px 2px #222222;
+  color: yellow;  
+  margin-left: 12%;
+  margin-bottom: -1.2vw;  
+  font-weight: bold; 
+  font-size: 2.5vw;        
+  display: inline-flex;  
+}
+
+.traction {    
+  color: aqua;
+  font-weight: bold;
+  font-size: 1.2vw;
+  margin: -2vw 0 -2vw 50%; 
+  width: 50%;  
+  display: inline-flex;  
+}
+
+.andon {  
+  font-size: 3.5vw;
+  background-color: gold;  
+  margin-top: 1%;  
+}
+
+.andon-message {
+  font-weight: bold;
+}
+
+.takt-container {
+  margin-top: 1%;
+}
+
+h2 {
+  color : white;
+}
+
+.takt, .production {
+  background-color: white;  
+  border: 3px solid black;
+  font-size: 3vw;
+}
+
+.takt-negative {
+  color: white;
+  background-color: red;
+}
+
+#stop-time{
+  color: red;
+}
+
+
+

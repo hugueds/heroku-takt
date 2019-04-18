@@ -1,0 +1,202 @@
+header {
+    display: none;
+}
+
+
+.wrapper {
+    display: flex;    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.date-wrapper {
+    display: flex;    
+}
+
+label {
+    font-size: 1rem;
+}
+
+select {
+    text-align: center;
+    width: 10rem;
+    font-size: 1.5rem;
+    text-align-last: center;
+}
+
+option {    
+    text-align-last: center;
+}
+
+#select-day {
+    width: 4rem;
+}
+
+.chart-wrapper {
+    width: 100%;
+    display: flex;    
+    border: 1px solid black;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.6rem 0 1.6rem 0;
+}
+
+#chartContainer {
+    flex: 1 1 auto;
+}
+
+#stopTimeChart {    
+    flex: 1 1 auto;
+}
+
+.box {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.button {
+    background-color: steelblue;
+    border-radius: 10px 10px;
+    height: 2rem;
+    width: 5rem;
+    color: white;
+}
+
+.button:active {
+    background-color: darkblue;
+}
+
+.toggle {
+    width: 10rem;
+    font-size: 1rem;
+    background-color: darkorange;
+}
+
+.toggle:active{
+    background-color: brown;
+}
+
+input[type=text] {
+    text-align: center;
+    font-size: 1.2rem;    
+    color: black;
+    background-color: rgb(247, 235, 186);
+    width: 9rem;
+}
+
+input[placeholder] {
+    color: red;
+    font-size: 1rem !important;
+}
+
+input[type=number] {
+    color: black;
+    height: 2rem;
+    font-size: 2rem;
+    width: 15%;
+    text-align: center;
+}
+
+select {
+    background-color: rgb(247, 235, 186);
+}
+
+input[type=number]:focus {
+    border: 2px solid cornflowerblue;    
+}
+
+/* TABLE */
+
+.deviation-container {
+    margin: 0 auto;
+    width: 97.5%;
+    border: 1px solid #000000;
+    margin-top: 2.5%;
+}
+
+.deviation-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+    font-size: 1rem;    
+}
+
+.deviation-container  thead {
+    background-color: #000000;
+    color: white;    
+}
+
+.deviation-container  th {
+    height: 3rem;
+}
+
+.deviation-container  td {
+    margin: 0 auto;
+    padding: 0.25rem 0 0.25rem 0;
+}
+
+.deviation-container tr {    
+    padding: 1rem 0 1rem 0;
+}
+
+.deviation-container  tr {
+    background-color: aqua;
+}
+
+.deviation-container tr:nth-child(even) {
+    background-color: rgb(200, 200, 200);
+}
+
+.deviation-container tr:nth-child(odd) {
+    background-color: rgb(255, 255, 255);
+}
+
+.deviation-container tr:hover{
+    background-color: aqua;
+}
+
+.col-description {
+    font-size: 0.85rem;
+}
+
+
+#page-container {
+    display: flex;    
+    flex-direction: row;
+}
+#page-container > div {
+    width: 100%;    
+        border: 1px solid black;  
+}
+
+.page-link {    
+    
+    font-size: 1.25rem;
+    color: blue;
+    cursor: pointer;
+    flex: 1 1 auto;
+}
+
+.page-link:hover {
+    color: navy;
+    text-decoration: underline;
+}
+
+@media print {
+    @page {
+        size : landscape;
+        margin: 10mm 10mm 10mm 10mm
+    }
+    header {
+        display: block;
+    }
+
+
+}
+

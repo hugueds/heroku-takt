@@ -15,7 +15,7 @@ socket.on('connect', () => {
 
 setInterval(() => {
     counter++;
-    socket.emit('counter', counter);
-})
+    socket.emit('counter', 'TESTE ZE CARLOS' + counter);
+}, 1000)
 
 

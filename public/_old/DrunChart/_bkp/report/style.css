@@ -1,0 +1,51 @@
+.deviation-container {
+    width: 100%;
+    border: 1px solid #000000;
+    margin-top: 2.5%;
+}
+
+.deviation-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+    font-size: 1.15rem;    
+}
+
+.deviation-container  thead {
+    background-color: #000000;
+    color: white;    
+}
+
+.deviation-container  th {
+    height: 3rem;
+}
+
+.deviation-container  td {
+    margin: 0 auto;
+    padding: 1rem 0 1.1rem 0;
+}
+
+.deviation-container tr {    
+    padding: 1.2rem 0 1.2rem 0;
+}
+
+.deviation-container  tr {
+    background-color: aqua;
+}
+
+.deviation-container tr:nth-child(even) {
+    background-color: rgb(200, 200, 200);
+}
+
+.deviation-container tr:nth-child(odd) {
+    background-color: rgb(255, 255, 255);
+}
+
+.deviation-container tr:hover{
+    background-color: aqua;
+}
+
+.col-description {
+    font-size: 0.85rem;
+}
