@@ -8,11 +8,11 @@ const server = http.createServer(app);
 const io = require('socket.io')(server);
 
 
-io.on('connection', (socket) => {
-    
+io.on('connection', (socket) => {  
+
     socket.on('server popids', (data) => io.emit('server popids', data));
-    // socket.on('server takt', (data) => io.emit('server takt', data));
-    // socket.on('server process', (data) => io.emit('server process', data));
+    socket.on('server takt', (data) => io.emit('server takt', data));
+    socket.on('server process', (data) => io.emit('server process', data));
 
 });
 
